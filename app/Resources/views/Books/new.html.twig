@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New!{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        #simpleform{
+            width: 600px;
+            border: 2px solid grey;
+            padding: 14px;
+        }
+        #simpleform label{
+            width: 300px;
+            font-size: 14px;
+            float: left;
+            text-align: right;
+            display: block;
+        }
+        #simpleform span{
+            width: 100px;
+            font-size: 11px;
+            color: light blue;
+            text-align: right;
+            display: block;
+        }
+        #simpleform input{
+            border: 1px solid grey;
+            font-family: verdana;
+            width: 250px;
+            height: 24px;
+            font-size: 14px;
+            color: light blue;
+            margin: 0 0 10px 10px;
+        }
+        #simpleform textarea{
+            border: 1px solid grey;
+            font-family: verdana;
+            width: 250px;
+            height: 120px;
+            font-size: 14px;
+            color: light blue;
+            margin: 0 0 20px 10px;
+        }
+        #simpleform select{
+            margin: 0 0 20px 20px;
+        }
+        #simpleform button{
+            clear:both;
+            margin-left: 250px;
+            background: grey;
+            color: #FFFFFF;
+            border-solid: 1px #666666;
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h3>Book details:</h3>
+    <div id = 'simpleform'>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

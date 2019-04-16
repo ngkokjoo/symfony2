@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Display!{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .table { border-collapse: collapse; }
+        .table th,td {
+            border-bottom: 1px solid #ddd;
+            width: 250px;
+            text-align: left;
+            align: left;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h2>Books database application!</h2>
+
+    <a href="{{path('newPage')}}">Add</a>
+
+    <table class = "table">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>CreatedTime</th>
+        </tr>
+
+        {% for x in data %}
+            <tr>
+                <td>{{ x.name }}</td>
+                <td>{{ x.author }}</td>
+                <td>{{ x.price }}</td>
+                <td>{{ x.createdTime|date('Y-m-d H:i:s') }}</td>
+                <td><a href="{{path('updatePage',{ 'id' : x.id })}}">Edit</a></td>
+                <td><a href="{{path('deletePage', { 'id' : x.id })}}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
